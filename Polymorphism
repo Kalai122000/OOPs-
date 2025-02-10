@@ -1,0 +1,104 @@
+Polymorphism allows objects to be treated as instances of their parent class rather than their actual class. 
+The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.
+
+Two types - Compile Time and RunTime Polymorphism
+
+class Animal {
+    void sound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("The dog barks");
+    }
+}
+
+class Cat extends Animal {
+    void sound() {
+        System.out.println("The cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Animal(); 
+        Animal myDog = new Dog(); 
+        Animal myCat = new Cat(); 
+
+        myAnimal.sound();
+        myDog.sound();
+        myCat.sound();
+    }
+}
+
+===============================================================================================================
+Feature        | 	   Compile-Time Polymorphism	                |      Runtime Polymorphism                   |
+===============================================================================================================
+*Mechanism	   |     Achieved through method overloading.	      |      Achieved through method overriding.    |
+*Binding	     |     Static binding (resolved at compile time). |    	 Dynamic binding (resolved at runtime). |
+*Performance	 |     Faster (resolved at compile time).	        |      Slower (resolved at runtime).          |
+*Example	     |     Method overloading in the same class.	    |      Method overriding in a subclass.       |
+===============================================================================================================
+
+COMPLIE TIME :
+class Calculator {
+    //* Method to add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    //* Method to add three integers (method overloading)
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    //* Method to add two double values (method overloading)
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.add(2, 3)); 
+        System.out.println(calc.add(2, 3, 4));
+        System.out.println(calc.add(2.5, 3.5)); 
+    }
+}
+
+RUN-TIME :
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal; 
+
+        myAnimal = new Dog();
+        myAnimal.sound(); 
+
+        myAnimal = new Cat(); 
+        myAnimal.sound(); 
+    }
+}
