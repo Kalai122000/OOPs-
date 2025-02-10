@@ -1,4 +1,6 @@
-Write a program to find the sum of two numbers using abstraction.
+Abstraction: Abstraction is a process of hiding the implementation details and showing only functionality to the user. 
+In Java, abstraction is achieved using abstract classes and interfaces.
+
 
 import java.util.Scanner;
 
