@@ -1,0 +1,57 @@
+Inheritance in Java is a mechanism where one class acquires the properties and behaviors (fields and methods) of another class. 
+It helps to promote code reusability, method overriding, and hierarchical classification. 
+In Java, inheritance is achieved using the extends keyword.
+
+Types of Inheritance in Java:
+
+Single Inheritance: A class inherits from only one class.
+Multilevel Inheritance: A class inherits from a subclass, and then other subclasses can inherit from this class.
+Hierarchical Inheritance: Multiple classes inherit from a single parent class.
+
+Java does not support multiple inheritance directly (i.e., a class cannot extend more than one class at a time). 
+However, Java achieves this functionality through interfaces.
+
+
+class Animal {
+    String name;
+    int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void makeSound() {
+        System.out.println("Some animal sound...");
+    }
+
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+class Dog extends Animal {
+
+    public Dog(String name, int age) {
+        
+        super(name, age);
+    }
+    @Override
+    public void makeSound() {
+        System.out.println("Woof! Woof!");
+    }
+
+    public void fetchBall() {
+        System.out.println(name + " is fetching the ball!");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        
+        Dog dog = new Dog("Buddy", 3);
+
+        dog.displayDetails(); 
+        dog.makeSound(); 
+        dog.fetchBall(); 
+    }
+}
