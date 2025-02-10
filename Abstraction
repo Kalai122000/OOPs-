@@ -27,3 +27,49 @@ public class Main {
         System.out.println("Sum: " + result);
     }
 }
+
+
+Interface :
+
+An interface is a reference type in Java that is similar to a class but contains only:
+
+Abstract methods: Methods without a body (must be implemented by classes).
+
+Default methods: Methods with a body (introduced in Java 8).
+
+Static methods: Methods with a body (can be called using the interface name).
+
+Constants: Fields are implicitly public, static, and final.
+
+
+interface Animal {
+    // Abstract method 
+    void sound();
+
+    // Default method 
+    default void sleep() {
+        System.out.println("This animal sleeps");
+    }
+
+    // Static method 
+    static void info() {
+        System.out.println("This is an Animal interface");
+    }
+}
+
+// Class implementing the interface
+class Dog implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("The dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.sound(); // Calls implemented method
+        myDog.sleep(); // Calls default method
+        Animal.info(); // Calls static method
+    }
+}
