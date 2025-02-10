@@ -1,0 +1,77 @@
+In this program you can identify multiple oops concepts (Abstraction, Inheritance, Polymorphism(complie and runtime))
+
+abstract class Student {
+    
+    String name ;
+    int id;
+    String dept;
+    int marks;
+    
+    
+    Student (String name, int id, String dept, int marks){
+        this.name = name;
+        this.id = id;
+        this.dept = dept;
+        this.marks = marks;
+    }
+    
+    abstract void statement();
+}
+interface college{
+    
+    void address();
+    
+    static void location(){
+        System.out.println("Coimbatore");
+    }
+}
+class details extends Student implements college {
+    
+    details(String name , int id , String dept, int marks){
+        super(name,id,dept,marks);
+    }
+    
+    public void display(){
+        System.out.println("STRUDENT DETAILS :");
+        System.out.println("NAME : "+ name);
+        System.out.println("ID :"+ id);
+        System.out.println("DEPT :" +dept);
+        System.out.println("MARKS :"+ marks);
+    }
+    @Override
+    public void statement(){
+        System.out.println("I'm from SKCET");
+    }
+    @Override
+    public void address(){
+        System.out.println("132/22, 4th new street");
+    }
+}
+class calculate {
+    int add(int a, int b){
+        return a+b;
+    }
+    int add(int a , int b, int c){
+        return a+b+c;
+    }
+    double add(double a, double b){
+        return a+b;
+    }
+}
+
+public class Main{
+    public static void main(String args[]){
+        details d1 = new details ("KALAI",1234,"CSE",70);
+        
+        d1.display();
+        d1.statement();
+        d1.address();
+        college.location();
+        
+        calculate c1 = new calculate();
+        System.out.println(c1.add(5,6,7));
+        System.out.println(c1.add(2,5));
+       
+        System.out.println(c1.add(25.4 , 7.7));
+    }
+}
