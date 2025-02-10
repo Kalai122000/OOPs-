@@ -1,0 +1,69 @@
+Encapsulation is one of the four fundamental Object-Oriented Programming (OOP) concepts (along with inheritance, polymorphism, and abstraction). 
+It refers to the concept of wrapping data (variables) and the code (methods) that manipulates the data into a single unit, typically a class.
+
+The main idea behind encapsulation is to restrict access to certain details or functionalities of an object 
+and to protect the object's internal state. This is done by making variables private and providing public getter and setter methods 
+to access and update the values of those variables.
+
+Benefits of Encapsulation:
+* Data Hiding
+* Flexibility and Maintainability
+* Improved Security
+
+
+class Employee {
+
+    private String name;
+    private int age;
+    private double salary;
+
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        if (age > 18) {
+            this.age = age;
+        } else {
+            System.out.println("Age must be greater than 18.");
+        }
+    }
+    
+    public void setSalary(double salary) {
+        if (salary > 0) {
+            this.salary = salary;
+        } else {
+            System.out.println("Salary must be positive.");
+        }
+    }
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Salary: $" + salary);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        
+        Employee emp = new Employee();
+
+        emp.setName("Kalai");
+        emp.setAge(25);
+        emp.setSalary(80000);
+
+        emp.displayDetails();
+
+        emp.setAge(17); 
+        emp.setSalary(-1000);  
+    }
+}
