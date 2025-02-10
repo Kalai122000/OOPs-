@@ -1,0 +1,45 @@
+Write a program to implement the concept of abstract class which contains constructors and 
+constructor of an abstract class should be called when an instance of a derived class is created.
+
+Sample Input 0
+
+6
+Sample Output 0
+
+Base class constructor
+Derived class constructor
+The given input is 6
+
+
+
+import java.util.Scanner;
+
+abstract class AbstractClass {
+    AbstractClass() {
+        System.out.println("Base class constructor");
+    }
+    abstract void display(int value);
+}
+
+class DerivedClass extends AbstractClass {
+    private int value;
+
+    DerivedClass(int value) {
+        super();
+        System.out.println("Derived class constructor");
+        this.value = value;
+    }
+    @Override
+    void display(int value) {
+        System.out.println("The given input is " + value);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        DerivedClass obj = new DerivedClass(n);
+        obj.display(n); 
+    }
+}
