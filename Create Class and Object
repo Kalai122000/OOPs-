@@ -1,0 +1,35 @@
+Object-Oriented Programming (OOP) is a programming paradigm that uses objects and classes to structure software. 
+Java is an object-oriented language, and it supports the following OOP concepts:
+
+Class: A class is a blueprint for creating objects. It defines a datatype by bundling data 
+and methods that work on the data into one single unit.
+
+Object: An object is an instance of a class. When a class is defined, no memory is allocated until an object is created.
+
+
+class Dog {
+    String breed;
+    int age;
+    String color;
+
+    void barking() {
+        System.out.println("The dog is barking");
+    }
+
+    void hungry() {
+        System.out.println("The dog is hungry");
+    }
+
+    void sleeping() {
+        System.out.println("The dog is sleeping");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog(); 
+        myDog.breed = "Bulldog";
+        myDog.age = 5;
+        myDog.color = "Brown";
+        myDog.barking();
+    }
+}
