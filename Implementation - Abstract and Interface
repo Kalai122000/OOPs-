@@ -1,0 +1,59 @@
+
+abstract class Car {
+  
+    String brandName;
+    String color;
+    double price;
+
+    Car(String brandName, String color, double price) {
+        this.brandName = brandName;
+        this.color = color;
+        this.price = price;
+    }
+
+    abstract void displayDetails();
+
+    void start() {
+        System.out.println("The car is starting...");
+    }
+}
+
+interface Speed {
+  
+    void showSpeed();
+    static void maxSpeedLimit() {
+        System.out.println("Maximum speed limit: 300 km/h");
+    }
+}
+class SportsCar extends Car implements Speed {
+    int speed;
+
+    SportsCar(String brandName, String color, double price, int speed) {
+        super(brandName, color, price); // Call to abstract class constructor
+        this.speed = speed;
+    }
+    @Override
+    void displayDetails() {
+        System.out.println("Brand Name: " + brandName);
+        System.out.println("Color: " + color);
+        System.out.println("Price: $" + price);
+    }
+
+    @Override
+    public void showSpeed() {
+        System.out.println("Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        SportsCar myCar = new SportsCar("Ferrari", "Red", 250000.0, 320);
+
+        myCar.start(); // Inherited from abstract class
+        myCar.displayDetails(); // Overridden method
+        myCar.showSpeed(); // Implemented from interface
+
+        Speed.maxSpeedLimit();
+    }
+}
