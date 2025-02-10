@@ -1,0 +1,58 @@
+interface EmployeeDetails {
+    void setDetails(String name, int id, double salary);
+    void display1();
+}
+interface JobDetails {
+    void setJobDetails(String position, String department);
+    void display2();
+}
+class Employee implements EmployeeDetails, JobDetails {
+
+    private String name;
+    private int id;
+    private double salary;
+    private String position;
+    private String department;
+    
+    @Override
+    public void setDetails(String name, int id, double salary) {
+        this.name = name;
+        this.id = id;
+        this.salary = salary;
+    }
+
+    @Override
+    public void display1() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + id);
+        System.out.println("Employee Salary: $" + salary);
+    }
+    @Override
+    public void setJobDetails(String position, String department) {
+        this.position = position;
+        this.department = department;
+    }
+
+    @Override
+    public void display2() {
+        System.out.println("Position: " + position);
+        System.out.println("Field : " + department);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Employee employee = new Employee();
+
+        employee.setDetails("Kalai", 1234, 85000.00);
+        
+        employee.setJobDetails("Freelancer", "Edutech");
+
+        System.out.println("\nEmployee Details:");
+        employee.display1();
+
+        System.out.println("\nJob Details:");
+        employee.display2();
+    }
+}
