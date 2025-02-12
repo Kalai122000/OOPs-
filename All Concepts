@@ -1,0 +1,133 @@
+This problem contains all the concepts of OOPs (Abstraction, Encapsulation, Inheritance,Polymorphism(compile,run-time), upcasting , downcasting)
+
+
+abstract class student{
+    String name;
+    int id;
+    String dept;
+    
+    
+    student (String name, int id,String dept){
+        this.name = name;
+        this.id = id;
+        this.dept = dept;
+        
+    }
+    abstract void location();
+    
+    abstract void address();
+}
+interface subject{
+    void subjectname();
+    
+    default void subjectmark(int a, int b, int c){
+        System.out.println("PYTHON :"+ a);
+        System.out.println("JAVA :" + b);
+        System.out.println("MERN :"+c);
+    }
+    static void total(int a,int b,int c){
+        int res = a+b+c;
+        System.out.println("TOTAL :"+res);
+    }
+}
+class details extends student implements subject{
+    
+    details(String name,int id,String dept){
+        super(name,id,dept);
+    }
+    void display(){
+        System.out.println("NAME :"+name);
+        System.out.println("ID :"+id);
+        System.out.println("DEPT :"+dept);
+    }
+    @Override
+    public void location(){
+        System.out.println("i'm from Chennai");
+    }
+    @Override
+    public void subjectname(){
+        System.out.println("PYTHON, JAVA, MERN");
+    }
+    @Override
+    public void address(){
+        System.out.println("132/22 4th new street");
+    }
+}
+class addition{
+    void add(int a,int b){
+        System.out.println(a+b);
+        System.out.println("Method from Parent");
+    }
+}
+class subraction extends addition{
+    void add(int a, int b){
+        System.out.println(a-b);
+        System.out.println("Method from child");
+    }
+    void method(int a, int b){
+        super.add(a,b);
+    }
+}
+class methodoverloading{
+    int multi (int a,int b){
+        return a*b;
+    }
+    int multi(int a,int b,int c){
+        int result = a*b*c;
+        return result;
+    }
+    double multi (double a, double b){
+        return a*b;
+    }
+}
+class encap{
+    private String name;
+    private int rollno;
+    
+    public String getname(){
+        return name;
+    }
+    public int getrollno(){
+        return rollno;
+    }
+    public void setname(String name){
+        this.name = name;
+    }
+    public void setrollno(int rollno){
+        this.rollno = rollno;
+    }
+    
+    public void display(){
+        System.out.println("Student name :"+name);
+        System.out.println("Roll No :"+rollno);
+    }
+}
+public class Main{
+    public static void main (String args[]){
+        details d1 = new details("KALAI",123,"CSE");
+        d1.display();
+        d1.location();
+        d1.address();
+        d1.subjectname();
+        d1.subjectmark(97,78,88);
+        subject.total(97,78,88);
+        
+        addition a1 = new subraction();
+        a1.add(7,8);
+        
+        subraction s1 = (subraction) a1;
+        s1.add(8,7);
+        
+        s1.method(6,7);
+        
+        methodoverloading m1 = new methodoverloading();
+        System.out.println(m1.multi(4,5));
+        System.out.println(m1.multi(6.4,7.8));
+        
+        encap e1 = new encap();
+        e1.setname("RAM");
+        e1.setrollno(4534);
+        e1.display();
+        System.out.println("Name of student :"+e1.getname());
+    }
+}
